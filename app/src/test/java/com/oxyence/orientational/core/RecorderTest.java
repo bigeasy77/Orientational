@@ -1,41 +1,41 @@
 package com.oxyence.orientational.core;
 
-import junit.framework.TestCase;
-
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Vector;
-import java.util.regex.Pattern;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
-public class RecorderTest extends TestCase {
+public class RecorderTest {
 
     private Recorder rec;
 
-    @Override
-    protected void setUp() {
+    @Before
+    public void setUp() {
         rec = new Recorder();
     }
 
-    protected void tearDown() {
-    }
-
     @Test
-    public void testStartRecording() {
-        rec.start();
-    }
-
-    @Test
-    public void testGetEmptySeries() {
+    public void getEmptySeries() {
         Vector vec = rec.getSeries();
         assertTrue(vec.isEmpty());
     }
 
     @Test
-    public void testSensorChanged() {
-
+    public void getOneSample() {
+        Sample smpl = new Sample(1,2,3);
+        rec.onSample(smpl);
+        Vector vec = rec.getSeries();
+        assertEquals(vec.get(0), smpl);
+        assertEquals(vec.size(), 1);
     }
 
+    @Test
+    public void isRecordingWhenStarted() {
+        rec.start();
+        assertTrue(rec.isRecording());
+    }
 }
 

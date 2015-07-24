@@ -2,18 +2,29 @@ package com.oxyence.orientational.core;
 
 import java.util.Vector;
 
-/**
- * Created by amw044 on 7/14/2015.
- */
-
 public class Recorder {
 
-    public void start() {
+    private Vector<Sample> series;
+    private boolean recording;
 
+    Recorder () {
+        series = new Vector<>();
+        recording = false;
+    }
+
+    public void start() {
+        recording = true;
     }
 
     public Vector getSeries() {
-        return new Vector();
+        return series;
     }
 
+    public void onSample(Sample smpl) {
+        series.add(smpl);
+    }
+
+    public boolean isRecording() {
+        return recording;
+    }
 }
