@@ -12,6 +12,10 @@ public class Recorder {
         recording = false;
     }
 
+    public void stop() {
+        recording = false;
+    }
+
     public void start() {
         recording = true;
     }

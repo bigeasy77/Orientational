@@ -8,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class RecorderTest {
+public class RecordingTest {
 
     private Recorder rec;
 
@@ -36,6 +36,13 @@ public class RecorderTest {
     public void isRecordingWhenStarted() {
         rec.start();
         assertTrue(rec.isRecording());
+    }
+
+    @Test
+    public void isNotRecordingWhenStopped() {
+        rec.start();
+        rec.stop();
+        assertFalse(rec.isRecording());
     }
 }
 
