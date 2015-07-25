@@ -3,6 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/oxyence/orientational/core/Recorder.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/oxyence/orientational/core/Sample.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/test/java/com/oxyence/orientational/core/RecorderTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/test/java/com/oxyence/orientational/core/RecordingTest.java" charset="UTF-8" />
   </component>
 </project>

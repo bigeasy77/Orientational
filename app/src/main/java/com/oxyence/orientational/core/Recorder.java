@@ -5,23 +5,40 @@ import java.util.Vector;
 public class Recorder {
 
     private Vector<Sample> series;
+    private Vector<Vector<Sample>>seriesVec;
     private boolean recording;
+    int lastId;
 
     Recorder () {
-        series = new Vector<>();
+        seriesVec = new Vector<>();
+
         recording = false;
+        lastId = 0;
     }
 
     public void stop() {
         recording = false;
+        seriesVec.add(series);
     }
 
-    public void start() {
+    public int start() {
         recording = true;
+        series = new Vector<>();
+        return lastId++;
     }
 
     public Vector getSeries() {
-        return series;
+        if (!isRecording())
+            return series;
+        else
+            return null;
+    }
+
+    public Vector getSeries(int id) {
+        if (!isRecording())
+            return seriesVec.get(id);
+        else
+            throw null;
     }
 
     public void onSample(Sample smpl) {
